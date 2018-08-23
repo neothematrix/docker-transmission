@@ -1,4 +1,4 @@
-FROM lsiobase/alpine:3.7
+FROM lsiobase/alpine:3.8
 
 # set version label
 ARG BUILD_DATE
@@ -16,12 +16,10 @@ RUN \
 	python \
 	rsync \
 	tar \
-	unrar \
-	unzip && \
- apk add --no-cache \
-	--repository http://nl.alpinelinux.org/alpine/edge/main \
 	transmission-cli \
-	transmission-daemon
+	transmission-daemon \
+	unrar \
+	unzip
 
 # copy local files
 COPY root/ /
