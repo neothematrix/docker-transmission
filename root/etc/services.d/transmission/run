@@ -6,8 +6,7 @@ _term() {
 }
 
         trap _term SIGTERM
-	
-	s6-setuidgid abc /usr/bin/transmission-daemon \
-	-g /config -c /watch -f &
 
-	wait
+exec \
+        s6-setuidgid abc /usr/bin/transmission-daemon \
+        -g /config -c /watch -f
