@@ -2,12 +2,12 @@
 
 _term() {
   echo "Caught SIGTERM signal!"
-  /usr/bin/transmission-remote --exit
+  /usr/bin/transmission-remote -ne --exit
 }
 
         trap _term SIGTERM
 	
 	s6-setuidgid abc /usr/bin/transmission-daemon \
-	-g /config -c /watch -f -e /config/transmission.log &
+	-g /config -c /watch -f &
 
 	wait
